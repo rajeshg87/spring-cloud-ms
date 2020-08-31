@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: caller-service
+  cloud:
+    config:
+      uri:
+        - http://localhost:8080
+      token: s.kK6pN0zMfBT9fxqCRfiFtHy2
+
+feign:
+  client:
+    config:
+      call-me-service:
+        readTimeout: 100
+        connectTimeout: 100
+        loggerLevel: full

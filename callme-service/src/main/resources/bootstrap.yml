@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: callme-service
+  cloud:
+    config:
+      #uri:
+       # - http://localhost:8080
+      discovery:
+        enabled: true
+        service-id: config-server
+      token: s.kK6pN0zMfBT9fxqCRfiFtHy2
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 3
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+
+app:
+  delay:

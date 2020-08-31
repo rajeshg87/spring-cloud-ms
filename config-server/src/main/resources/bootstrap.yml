@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native,vault
+  cloud:
+    config:
+      server:
+        native:
+          search-locations:
+            - classpath:/config-repo
+        vault:
+          host: localhost
+          authentication: TOKEN
+          token: s.kK6pN0zMfBT9fxqCRfiFtHy2
