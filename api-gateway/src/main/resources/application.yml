@@ -8,3 +8,20 @@ spring:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: callme-service
+          uri: lb://callme-service
+          predicates:
+            - Path=/api/callme/**
+          filters:
+            - RewritePath=/api(?<path>/?.*), $\{path}
+        - id: caller-service
+          uri: lb://caller-service
+          predicates:
+            - Path=/api/caller/**
+          filters:
+            - StripPrefix=1
+    loadbalancer:
+      ribbon:
+        enabled: false
