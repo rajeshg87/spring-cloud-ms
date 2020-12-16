@@ -6,8 +6,11 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer
 
 @SpringBootApplication
 @EnableEurekaServer
-class DiscoveryServerApplication
-
-fun main(args: Array<String>) {
-	runApplication<DiscoveryServerApplication>(*args)
+open class DiscoveryServerApplication{
+	companion object{
+		@JvmStatic
+		fun main(args: Array<String>) {
+			runApplication<DiscoveryServerApplication>(*args)
+		}
+	}
 }

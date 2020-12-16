@@ -10,15 +10,15 @@
         <module>caller-service</module>
         <module>discovery-server</module>
         <module>api-gateway</module>
-	</modules>
-    
+    </modules>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
         <relativePath/>
     </parent>
-	
+
     <artifactId>spring-cloud-microservices</artifactId>
     <version>1.0</version>
 	<packaging>pom</packaging>
@@ -28,6 +28,15 @@
         <kotlin.version>1.3.71</kotlin.version>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+
+    </dependencies>
 
     <dependencyManagement>
         <dependencies>
@@ -40,5 +49,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+        <testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.5.0</version>
+                <configuration>
+                    <to>rajeshg87/spring-cloud-ms</to>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

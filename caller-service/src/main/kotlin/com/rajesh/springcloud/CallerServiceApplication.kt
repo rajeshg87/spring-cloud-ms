@@ -10,14 +10,16 @@ import org.springframework.web.client.RestTemplate
 
 @SpringBootApplication
 @EnableFeignClients
-class CallerServiceApplication {
+open class CallerServiceApplication {
 
-	@Bean
-	@LoadBalanced
-	fun template(): RestTemplate = RestTemplateBuilder().build()
+	companion object {
+		@JvmStatic
+		fun main(args: Array<String>) {
+			runApplication<CallerServiceApplication>(*args)
+		}
 
-}
-
-fun main(args: Array<String>) {
-	runApplication<CallerServiceApplication>(*args)
+		@Bean
+		@LoadBalanced
+		fun template(): RestTemplate = RestTemplateBuilder().build()
+	}
 }

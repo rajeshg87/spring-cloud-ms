@@ -4,8 +4,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CallmeServiceApplication
-
-fun main(args: Array<String>) {
-	runApplication<CallmeServiceApplication>(*args)
+open class CallmeServiceApplication{
+	companion object{
+		@JvmStatic
+		fun main(args: Array<String>) {
+			runApplication<CallmeServiceApplication>(*args)
+		}
+	}
 }
+
+

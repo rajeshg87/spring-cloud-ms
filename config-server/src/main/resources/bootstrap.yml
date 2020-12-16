@@ -12,4 +12,4 @@ spring:
         vault:
           host: localhost
           authentication: TOKEN
-          token: s.kK6pN0zMfBT9fxqCRfiFtHy2
+          token: ${VAULT_TOKEN}

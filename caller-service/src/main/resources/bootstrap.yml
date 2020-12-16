@@ -5,7 +5,7 @@ spring:
     config:
       uri:
         - http://localhost:8080
-      token: s.kK6pN0zMfBT9fxqCRfiFtHy2
+      token: rajeshvaulttoken
 
 feign:
   client:
